@@ -55,7 +55,7 @@ wsServer.on('connection', (ws, req) => {
       const users = User.getUsers();
       [...wsServer.clients]
         .filter(o => o.readyState === WS.OPEN)
-        .forEach(o => o.send(JSON.stringify({ type: 'deleteUser', data: users })));
+        .forEach(o => o.send(JSON.stringify({ type: 'users', data: users })));
     }
   });
 });
